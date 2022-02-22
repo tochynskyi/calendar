@@ -1,0 +1,18 @@
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	&__item {
+		width: 14px;
+		fill:#5f6368;
+	}
+	&:hover {
+		border-radius: 50%;
+		background-color: rgba(97, 97, 97, 0.08);
+	}
+}

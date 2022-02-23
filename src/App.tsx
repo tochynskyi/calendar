@@ -1,10 +1,14 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
+import React, { FC } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
 
-const App = () => {
+const App: FC = () => {
   return (
-	 <Navbar/>
-  )
-}
+    <>
+      <Navbar />
+      <Sidebar />
+    </>
+  );
+};
 
-export default App
+export default App;

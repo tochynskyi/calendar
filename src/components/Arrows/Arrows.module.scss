@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .arrow {
 	display: flex;
 	align-items: center;
@@ -9,10 +11,10 @@
 	cursor: pointer;
 	&__item {
 		width: 14px;
-		fill:#5f6368;
+		fill: $lightgray;
 	}
 	&:hover {
 		border-radius: 50%;
-		background-color: rgba(97, 97, 97, 0.08);
+		background-color: $hoverGray;
 	}
 }

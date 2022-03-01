@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface MonthState {
-	month: []
+	month: any[],
 }
 
 const initialState: MonthState = {
-	month: []
+	month: [],
 }
 
 
@@ -19,8 +19,8 @@ const calendarSlice = createSlice({
 		nextMonth() {
 
 		},
-		currentMonth() {
-
+		currentMonth(state, action) {
+			state.month.push(action.payload)
 		},
 	}
 })

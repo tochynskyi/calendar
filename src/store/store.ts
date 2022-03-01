@@ -1,10 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
-import calendarSlice from './reducer'
+import calendarSlice from './reducers/calendarSlice'
 
-const store = configureStore({
+
+export const store = configureStore({
 	reducer: {
-		calendar: calendarSlice,
-	}
+		calendarSlice,
+	},
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+		serializableCheck: false
+	 }),
  })
 
 export type RootState = ReturnType<typeof store.getState>

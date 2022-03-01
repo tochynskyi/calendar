@@ -19,7 +19,7 @@ const calendarSlice = createSlice({
 		nextMonth() {
 
 		},
-		currentMonth(state, action) {
+		currentMonth(state, action: PayloadAction<Array<any>>) {
 			state.month.push(action.payload)
 		},
 	}

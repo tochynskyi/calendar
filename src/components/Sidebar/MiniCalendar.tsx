@@ -1,5 +1,4 @@
-import React, { FC, useState } from 'react'
-import { getDate } from '../../utils/getDate'
+import React, { FC } from 'react'
 
 const MiniCalendar:FC = () => {
 	

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import ButtonCreate from "./ButtonCreate";
-import MiniCalendar from "./MiniCalendar";
+import ButtonCreate from "./ButtonCreate/ButtonCreate";
+import MiniCalendar from "./SmallCalendar/SmallCalendar";
 import style from './Sidebar.module.scss'
 
 

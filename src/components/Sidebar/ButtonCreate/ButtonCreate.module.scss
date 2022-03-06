@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import "../../../styles/variables.scss";
 
 .button {
 	position: absolute;
@@ -14,7 +14,7 @@
 	&__plus {
 		margin-right: 12px;
 	}
-	&__text {
+	&__title {
 		font-size: 14px;
 		color: $darkgray;
 		&::after {

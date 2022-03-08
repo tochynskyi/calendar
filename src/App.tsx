@@ -7,8 +7,9 @@ import { currentDate } from "./store/reducers/calendarSlice";
 
 const App: FC = () => {
 	const dispatch = useAppDispatch()
-	const {daysMatrix} = useAppSelector(state => state.calendarSlice)
-
+	const {daysMatrix, currentMonthYearDay} = useAppSelector(state => state.calendarSlice)
+	console.log(daysMatrix, currentMonthYearDay);
+	
 	useEffect(() => {
 		!daysMatrix.length && dispatch(currentDate(getDate()))
 	}, [])

@@ -8,7 +8,7 @@ import styles from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
   const dispatch = useAppDispatch();
-  const { currentMonthYearDay } = useAppSelector(
+  const { daysMatrix ,currentMonthYearDay } = useAppSelector(
     (state) => state.calendarSlice
   );
 	// console.log(currentMonthYearDay);

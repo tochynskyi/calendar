@@ -6,7 +6,6 @@ const SmallCalendar: FC = () => {
   const { daysMatrix, currentMonthYearDay } = useAppSelector(
     (state) => state.calendarSlice
   );
-	console.log(daysMatrix,currentMonthYearDay);
 	
   return (
     <div className={style.calendar__wrapper}>

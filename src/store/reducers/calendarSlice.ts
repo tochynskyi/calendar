@@ -19,10 +19,9 @@ const calendarSlice = createSlice({
   name: "calendar",
   initialState,
   reducers: {
-    prevMonth() {},
-    nextMonth() {},
     currentDate(state, action: PayloadAction<any>) {
 		const {currentMonthYearDay, daysMatrix} = action.payload
+		state.daysMatrix.length = 0
       state.daysMatrix.push(daysMatrix);
 		state.currentMonthYearDay = currentMonthYearDay
     },
@@ -30,4 +29,4 @@ const calendarSlice = createSlice({
 });
 
 export default calendarSlice.reducer;
-export const { prevMonth, nextMonth, currentDate } = calendarSlice.actions;
+export const { currentDate } = calendarSlice.actions;

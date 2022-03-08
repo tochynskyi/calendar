@@ -3,12 +3,12 @@ import { IDate } from "../../interfaces/IDate";
 
 interface CalendarState {
   daysMatrix: IDate[][];
-  currentMonthYear: IDate
+  currentMonthYearDay: IDate
 }
 
 const initialState: CalendarState = {
   daysMatrix: [],
-  currentMonthYear: {
+  currentMonthYearDay: {
 	  month: '',
 	  year: 0,
 	  day: 0
@@ -22,9 +22,9 @@ const calendarSlice = createSlice({
     prevMonth() {},
     nextMonth() {},
     currentDate(state, action: PayloadAction<any>) {
-		const {currMonthYear, daysMatrix} = action.payload
+		const {currentMonthYearDay, daysMatrix} = action.payload
       state.daysMatrix.push(daysMatrix);
-		state.currentMonthYear = currMonthYear
+		state.currentMonthYearDay = currentMonthYearDay
     },
   },
 });

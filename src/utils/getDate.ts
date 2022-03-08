@@ -7,9 +7,6 @@ export function getDate(month = dayjs().month()) {
   const firstDayOfTheMonth = dayjs(new Date(year, month, 1)).day();
   let currentMonthCount = 0 - firstDayOfTheMonth;
 
-  const date = (type: string) =>
-    dayjs(new Date(year, month, currentMonthCount)).format(type);
-
   const daysMatrix: IDate[][] = Array(6)
     .fill([])
     .map(() => {
@@ -17,6 +14,8 @@ export function getDate(month = dayjs().month()) {
         .fill(null)
         .map(() => {
           currentMonthCount++;
+          const date = (type: string) =>
+            dayjs(new Date(year, month, currentMonthCount)).format(type);
           return {
             year: +date("YYYY"),
             month: date("MMMM"),
@@ -24,13 +23,13 @@ export function getDate(month = dayjs().month()) {
           };
         });
     });
-  const getMonthYear = (type: string) =>
-    dayjs(new Date(year, month)).format(type);
 
-  const currMonthYear: IDate = {
-    month: getMonthYear("MMMM"),
-    year: +getMonthYear("YYYY"),
-	 day: +dayjs().format('D')
+  const getMonthYearDay = (type: string) =>
+    dayjs(new Date(year, month)).format(type);
+  const currentMonthYearDay: IDate = {
+    month: getMonthYearDay("MMMM"),
+    year: +getMonthYearDay("YYYY"),
+    day: +dayjs().format("D"),
   };
-  return { daysMatrix, currMonthYear };
+  return { daysMatrix, currentMonthYearDay };
 }

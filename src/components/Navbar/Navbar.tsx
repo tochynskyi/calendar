@@ -8,8 +8,11 @@ import styles from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
   const dispatch = useAppDispatch();
-  const { currentMonthYear } = useAppSelector((state) => state.calendarSlice);
-
+  const { currentMonthYearDay } = useAppSelector(
+    (state) => state.calendarSlice
+  );
+	// console.log(currentMonthYearDay);
+	
   const todayHandler = () => {
     dispatch(currentDate(getDate()));
   };
@@ -21,7 +24,7 @@ const Navbar: FC = () => {
         </div>
         <div className={styles.navbar__logo}>
           <Logo className={styles.navbar__img} />
-          {currentMonthYear.day}
+          {currentMonthYearDay.day}
         </div>
         <div className={styles.navbar__title}>Calendar</div>
         <div className={styles.navbar__controlPanel}>
@@ -34,9 +37,9 @@ const Navbar: FC = () => {
           </button>
           <Arrows />
         </div>
-        <div
-          className={styles.navbar__currentDate}
-        >{`${currentMonthYear.month} ${currentMonthYear.year}`}</div>
+        <div className={styles.navbar__currentDate}>
+          {`${currentMonthYearDay.month} ${currentMonthYearDay.year}`}
+        </div>
       </div>
     </div>
   );

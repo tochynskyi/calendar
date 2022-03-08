@@ -3,12 +3,11 @@ import { useAppSelector } from "../../../hooks/redux";
 import style from "./SmallCalendar.module.scss";
 
 const SmallCalendar: FC = () => {
-  const { daysMatrix, currentMonthYear } = useAppSelector(
+  const { daysMatrix, currentMonthYearDay } = useAppSelector(
     (state) => state.calendarSlice
   );
-
-  console.log(daysMatrix, currentMonthYear);
-
+	console.log(daysMatrix,currentMonthYearDay);
+	
   return (
     <div className={style.calendar__wrapper}>
       <div className={style.calendar__header}>

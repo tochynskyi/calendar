@@ -10,7 +10,7 @@ const App: FC = () => {
 	const {daysMatrix} = useAppSelector(state => state.calendarSlice)
 
 	useEffect(() => {
-		!daysMatrix.length && dispatch(currentDate(getDate(6)))
+		!daysMatrix.length && dispatch(currentDate(getDate()))
 	}, [])
 
   return (

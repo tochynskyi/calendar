@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IDate } from "../../interfaces/IDate";
 
 interface CalendarState {
-  daysMatrix: IDate[][];
+  daysMatrix: null | IDate[][];
   currentMonthYearDay: IDate
 }
 
 const initialState: CalendarState = {
-  daysMatrix: [],
+  daysMatrix: null,
   currentMonthYearDay: {
 	  month: '',
 	  year: 0,
@@ -19,10 +19,10 @@ const calendarSlice = createSlice({
   name: "calendar",
   initialState,
   reducers: {
-    currentDate(state, action: PayloadAction<any>) {
+    currentDate(state, action: PayloadAction<{daysMatrix: IDate[][], currentMonthYearDay: IDate}>) {
 		const {currentMonthYearDay, daysMatrix} = action.payload
-		state.daysMatrix.length = 0
-      state.daysMatrix.push(daysMatrix);
+		state.daysMatrix = null
+      state.daysMatrix = daysMatrix;
 		state.currentMonthYearDay = currentMonthYearDay
     },
   },

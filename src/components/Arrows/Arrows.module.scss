@@ -1,6 +1,9 @@
 @import "../../styles/variables.scss";
 
 .arrow {
+	&__wrapper {
+		display: flex;
+	}
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -20,6 +20,7 @@ export function getDate(month = dayjs().month()) {
             year: +date("YYYY"),
             month: date("MMMM"),
             day: +date("D"),
+				dayName: date('ddd')
           };
         });
     });

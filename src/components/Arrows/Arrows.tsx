@@ -25,14 +25,14 @@ const Arrows: FC = () => {
     setCurrentMonthIdx(currentMonthIdx - 1);
   };
   return (
-    <>
+    <div className={styles.arrow__wrapper}>
       <button onClick={handlePrevMonth} className={styles.arrow}>
         <LeftArrow className={styles.arrow__item} />
       </button>
       <button onClick={handleNextMonth} className={styles.arrow}>
         <RightArrow className={styles.arrow__item} />
       </button>
-    </>
+    </div>
   );
 };
 

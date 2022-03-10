@@ -1,0 +1,37 @@
+@import "../../../styles/variables.scss";
+
+
+.calendar {
+	display: flex;
+	flex-direction: column;
+	padding: 0 14px 16px 19px;
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__currentDate {
+		font-size: 14px;
+		letter-spacing: .25px;
+		line-height: 20px;
+		color: $darkgray;
+		font-weight: 500;
+		padding-left: 5px;
+	}
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+	&__weekDays {
+		display: flex;
+		align-items: center;
+		height: 24px;
+	}
+	&__dayName {
+		width: 32px;
+		text-align: center;
+		font-size: 10px;
+		font-weight: 500;
+		color: $lightgray;
+	}
+}

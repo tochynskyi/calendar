@@ -9,7 +9,9 @@ const Sidebar: FC = () => {
       <div className={style.sidebar__buttonCreate}>
         <ButtonCreate />
       </div>
-      <MiniCalendar />
+      <div className={style.sidebar__body}>
+        <MiniCalendar />
+      </div>
     </div>
   );
 };

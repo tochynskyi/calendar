@@ -1,6 +1,5 @@
 @import "../../../styles/variables.scss";
 
-
 .calendar {
 	display: flex;
 	flex-direction: column;
@@ -12,7 +11,7 @@
 	}
 	&__currentDate {
 		font-size: 14px;
-		letter-spacing: .25px;
+		letter-spacing: 0.25px;
 		line-height: 20px;
 		color: $darkgray;
 		font-weight: 500;
@@ -33,5 +32,36 @@
 		font-size: 10px;
 		font-weight: 500;
 		color: $lightgray;
+	}
+	// &__monthDaysDisplay {
+
+	// }
+	&__row {
+		display: flex;
+		color: $darkgray;
+	}
+	&__day {
+		text-align: center;
+		width: 24px;
+		height: 24px;
+		font-size: 10px;
+		line-height: 24px;
+		font-weight: 500;
+		color: $lightgray;
+		margin: auto;
+		cursor: pointer;
+		border-radius: 50%;
+		transition: background-color 100ms linear;
+		&__active {
+			background-color: $blue;
+			color: #fff;
+			pointer-events: none;
+		}
+		&__current {
+			color: $darkgray;
+		}
+		&:hover {
+			background-color: $hoverGray;
+		}
 	}
 }

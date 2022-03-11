@@ -13,7 +13,7 @@ const App: FC = () => {
 
   useEffect(() => {
     !daysMatrix && dispatch(currentDate(getDate()));
-  }, []);
+  }, [daysMatrix]);
 
   return (
     <>

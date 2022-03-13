@@ -8,13 +8,13 @@ import style from "./SmallCalendar.module.scss";
 
 const SmallCalendar: FC = () => {
   const { currentMonth } = useAppSelector((state) => state.calendarSlice);
-  const [localMonth, setLocalMonth] = useState<number>(0);
-  const { year, month } = getDate(localMonth);
+  const [month, setMonth] = useState<number>(0);
+  const date = getDate(month);
 
-  const calendar = useCalendar(localMonth);
+  const calendar = useCalendar(month);
 
   useEffect(() => {
-    setLocalMonth(currentMonth);
+    setMonth(currentMonth);
   }, [currentMonth]);
 
   return (
@@ -23,10 +23,10 @@ const SmallCalendar: FC = () => {
         <div className={style.calendar__header}>
           <div
             className={style.calendar__currentDate}
-          >{`${month} ${year}`}</div>
+          >{`${date.month} ${date.year}`}</div>
           <Arrows
-            handlerPrev={() => setLocalMonth(localMonth - 1)}
-            handlerNext={() => setLocalMonth(localMonth + 1)}
+            handlerPrev={() => setMonth(month - 1)}
+            handlerNext={() => setMonth(month + 1)}
           />
         </div>
         <div className={style.calendar__body}>
@@ -46,7 +46,7 @@ const SmallCalendar: FC = () => {
                       className={
                         isActiveDay(year, month, day)
                           ? `${style.calendar__day} ${style.calendar__day__active}`
-                          : month === month
+                          : date.month === month
                           ? `${style.calendar__day} ${style.calendar__day__current}`
                           : `${style.calendar__day}`
                       }

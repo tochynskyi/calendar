@@ -15,7 +15,6 @@ const Navbar: FC = () => {
   const { year, month } = getDate(currentMonth);
 
   const handlerPrev = () => dispatch(changeMonth(currentMonth - 1));
-
   const handlerNext = () => dispatch(changeMonth(currentMonth + 1));
 
 //   console.log(currentMonth);

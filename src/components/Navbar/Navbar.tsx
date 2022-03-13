@@ -1,21 +1,25 @@
+import dayjs from "dayjs";
 import React, { FC } from "react";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { currentDate } from "../../store/reducers/calendarSlice";
+import { changeMonth } from "../../store/reducers/calendarSlice";
 import { getDate } from "../../utils/getDate";
 import Arrows from "../Arrows/Arrows";
 import styles from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
+  const { currentMonth } = useAppSelector((state) => state.calendarSlice);
   const dispatch = useAppDispatch();
-  const { daysMatrix ,currentMonthYearDay } = useAppSelector(
-    (state) => state.calendarSlice
-  );
-	// console.log(currentMonthYearDay);
-	
-  const todayHandler = () => {
-    dispatch(currentDate(getDate()));
-  };
+  const currentDay = dayjs().format("DD");
+
+  const { year, month } = getDate(currentMonth);
+
+  const handlerPrev = () => dispatch(changeMonth(currentMonth - 1));
+
+  const handlerNext = () => dispatch(changeMonth(currentMonth + 1));
+
+//   console.log(currentMonth);
+
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar__menu}>
@@ -24,22 +28,20 @@ const Navbar: FC = () => {
         </div>
         <div className={styles.navbar__logo}>
           <Logo className={styles.navbar__img} />
-          {currentMonthYearDay.day}
+          {currentDay}
         </div>
         <div className={styles.navbar__title}>Calendar</div>
         <div className={styles.navbar__controlPanel}>
           <button
             type="button"
-            onClick={todayHandler}
+            // onClick={}
             className={styles.navbar__button}
           >
             Today
           </button>
-          <Arrows />
+          <Arrows handlerPrev={handlerPrev} handlerNext={handlerNext} />
         </div>
-        <div className={styles.navbar__currentDate}>
-          {`${currentMonthYearDay.month} ${currentMonthYearDay.year}`}
-        </div>
+        <div className={styles.navbar__currentDate}>{`${month} ${year}`}</div>
       </div>
     </div>
   );

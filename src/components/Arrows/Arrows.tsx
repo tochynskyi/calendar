@@ -7,20 +7,7 @@ interface ArrowsProps {
   handlerNext: () => void;
 }
 const Arrows: FC<ArrowsProps> = ({ handlerPrev, handlerNext }) => {
-  //   const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(
-  //     dayjs().month()
-  //   );
-  //   const dispatch = useAppDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(currentDate(getDate(currentMonthIdx)));
-  //   }, [currentMonthIdx]);
-
-  //   const handleNextMonth = () => setCurrentMonthIdx(prev => prev + 1);
-
-  //   const handlePrevMonth = () => {
-  //     setCurrentMonthIdx(currentMonthIdx - 1);
-  //   };
   return (
     <div className={styles.arrow__wrapper}>
       <button onClick={handlerPrev} className={styles.arrow}>

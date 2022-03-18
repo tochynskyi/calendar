@@ -16,35 +16,33 @@ const DaysDisplay: FC<DaysDisplayProps> = ({ display }) => {
 
   return (
     <div className={style.calendar__body}>
-      <div className={style.calendar__dayNames}>
-        {display === "small" &&
-          calendar[0].map(({ dayName }, i) => (
+      {display === "small" && (
+        <div className={style.calendar__dayNames}>
+          {calendar[0].map(({ dayName }, i) => (
             <div key={i} className={style.calendar__dayName}>
               {dayName}
             </div>
           ))}
-      </div>
+        </div>
+      )}
       <div className={style.calendar__monthDaysDisplay}>
         {calendar.map((week, i) => (
           <div key={i} className={style.calendar__row}>
             {week.map(({ year, month, day, dayName }, id) => (
-              <>
+              <div className={`${display === "large" && `${style.calendar__day__large}`}`}>
                 {i === 0 && display === "large" && (
                   <div key={dayName}>{dayName}</div>
                 )}
                 <div
                   key={id}
-                  className={
-                    isActiveDay(year, month, day)
-                      ? `${style.calendar__day} ${style.calendar__day__active}`
-                      : date.month === month
-                      ? `${style.calendar__day} ${style.calendar__day__current}`
-                      : `${style.calendar__day}`
-                  }
+                  className={`${style.calendar__day}
+                     ${date.month === month && `${style.calendar__day__current}`}
+							${isActiveDay(year, month, day) && `${style.calendar__day__active}`}
+						`}
                 >
                   {day}
                 </div>
-              </>
+              </div>
             ))}
           </div>
         ))}

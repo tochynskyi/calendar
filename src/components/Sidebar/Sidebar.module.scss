@@ -1,7 +1,7 @@
 .sidebar {
 	position: relative;
 	width: 256px;
-	height: 100vh;
+	overflow: hidden;
 	transform: translateX(-256px);
 	transition: transform 0.3s ease;
 	&__active {

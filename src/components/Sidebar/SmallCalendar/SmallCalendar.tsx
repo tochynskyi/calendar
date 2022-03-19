@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { useCalendar } from "../../../hooks/useCalendar";
 import { changeSmallMonth } from "../../../store/reducers/calendarSlice";
 import { getDate } from "../../../utils/getDate";
 import Arrows from "../../Arrows/Arrows";
@@ -11,6 +12,7 @@ const SmallCalendar: FC = () => {
     (state) => state.calendarSlice
   );
   const dispatch = useAppDispatch();
+  const smallCalendar = useCalendar(smallCalendarMonth);
   const date = getDate(smallCalendarMonth);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const SmallCalendar: FC = () => {
             }
           />
         </div>
-        <DaysDisplay display="small" />
+        <DaysDisplay display="small" calendar={smallCalendar} date={date}/>
       </div>
     </>
   );

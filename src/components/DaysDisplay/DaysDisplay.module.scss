@@ -1,14 +1,15 @@
 @import "../../styles/variables.scss";
 
-
 .calendar {
 	display: flex;
 	flex-direction: column;
 	padding: 0 14px 16px 19px;
 
 	&__body {
-		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
+		overflow: hidden;
+		position: relative;
 	}
 	&__dayNames {
 		display: flex;
@@ -22,9 +23,9 @@
 		font-weight: 500;
 		color: $lightgray;
 	}
-	// &__monthDaysDisplay {
+	&__monthDaysDisplay {
 
-	// }
+	}
 	&__row {
 		display: flex;
 		color: $darkgray;
@@ -37,12 +38,13 @@
 		line-height: 24px;
 		font-weight: 500;
 		color: $lightgray;
-		margin: auto;
+		margin: 0 3.4px;
 		cursor: pointer;
 		border-radius: 50%;
 		transition: background-color 100ms linear;
 		&__large {
-			font-size: 12px;
+			width: 100%;
+			min-width: 95px;
 		}
 		&__current {
 			color: $darkgray;
@@ -50,7 +52,7 @@
 		&__active {
 			background-color: $blue;
 			color: #fff;
-			// pointer-events: none;
+			pointer-events: none;
 		}
 		&:hover {
 			background-color: $hoverGray;

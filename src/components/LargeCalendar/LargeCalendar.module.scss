@@ -1,1 +1,11 @@
 @import "../../styles/variables.scss";
+
+.calendar {
+	&__wrapper {
+		flex: 1 1 auto;
+		overflow: hidden;
+		position: relative;
+		margin-left: 8px;
+		height: 100%;
+	}
+}

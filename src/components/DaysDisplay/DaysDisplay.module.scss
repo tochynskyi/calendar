@@ -1,6 +1,10 @@
 @import "../../styles/variables.scss";
 .row {
+	position: relative;
 	display: flex;
+	flex: 1 1 0%;
+	overflow: hidden;
+	width: 100%;
 }
 .day {
 	text-align: center;
@@ -47,4 +51,20 @@
 	}
 }
 
+.largeCalendar {
+	&__wrapper {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+	&__dayWrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border: #dadce0 1px solid;
+		width: 100%;
+	}
+}
 

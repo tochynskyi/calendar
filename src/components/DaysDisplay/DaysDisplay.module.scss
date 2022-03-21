@@ -1,17 +1,17 @@
 @import "../../styles/variables.scss";
 .row {
-	position: relative;
 	display: flex;
-	flex: 1 1 0%;
+	flex: 1 1 auto;
 	overflow: hidden;
-	width: 100%;
 }
 .day {
-	text-align: center;
-	width: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	height: 24px;
+	width: 24px;
+	font-weight: 500;
 	color: $lightgray;
-	margin: 0 3.4px;
 	cursor: pointer;
 	border-radius: 50%;
 	transition: background-color 100ms linear;
@@ -30,7 +30,8 @@
 
 .smallCalendar {
 	&__wrapper {
-
+		display: flex;
+		flex-direction: column;
 	}
 	&__dayNames {
 		display: flex;
@@ -45,26 +46,37 @@
 		color: $lightgray;
 	}
 	&__day {
+		margin: 0 3.3px;
 		font-size: 10px;
-		line-height: 24px;
-		font-weight: 500;
 	}
 }
 
 .largeCalendar {
 	&__wrapper {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border-left: 1px solid $border;
+	}
+	&__row {
+		border-bottom: 1px solid $border;	
 	}
 	&__dayWrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		border: #dadce0 1px solid;
-		width: 100%;
+		flex: 1 1 100%;
+		min-width: 95px;
+		border-right: 1px solid $border;
+	}
+	&__dayName {
+		color: $lightgray;
+		font-size: 11px;
+		font-weight: 500;
+		margin-top: 5px;
+	}
+	&__day {
+		margin: 8px 0;
+		font-size: 12px;
 	}
 }
-

@@ -44,10 +44,14 @@ const DaysDisplay: FC<DaysDisplayProps> = ({ display, calendar, date }) => {
       {display === "large" && (
         <div className={style.largeCalendar__wrapper}>
           {calendar.map((week, i) => (
-            <div key={i} className={style.row}>
+            <div key={i} className={`${style.largeCalendar__row} ${style.row}`}>
               {week.map(({ year, month, day, dayName }, id) => (
                 <div className={style.largeCalendar__dayWrapper}>
-                  {i === 0 && <div key={dayName}>{dayName}</div>}
+                  {i === 0 && (
+                    <div key={dayName} className={style.largeCalendar__dayName}>
+                      {dayName}
+                    </div>
+                  )}
                   <div
                     key={id}
                     className={`${style.day} ${style.largeCalendar__day}
@@ -66,6 +70,5 @@ const DaysDisplay: FC<DaysDisplayProps> = ({ display, calendar, date }) => {
     </>
   );
 };
-
 
 export default DaysDisplay;

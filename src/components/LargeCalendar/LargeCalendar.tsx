@@ -10,9 +10,11 @@ const LargeCalendar: FC = () => {
   const largeCalendar = useCalendar(currentMonth);
   const date = getDate(currentMonth);
 
-  // Додати обгортку (дивитись в Гугл календар)
+  const onScroll = (e: any) => {
+	 return  console.log(`scroll`, e.target.scrollTop);
+  }
   return (
-    <div className={style.calendar__wrapper}>
+    <div onScroll={onScroll} className={style.calendar__wrapper}>
       <DaysDisplay display="large" calendar={largeCalendar} date={date} />
     </div>
   );

@@ -19,7 +19,7 @@ const calendarSlice = createSlice({
     changeMonth(state, action: PayloadAction<number>) {
       state.currentMonth = action.payload;
     },
-    changeSmallMonth(state, action: PayloadAction<number>) {
+    changeSmallCalendarMonth(state, action: PayloadAction<number>) {
       state.smallCalendarMonth = action.payload;
     },
 	 changeStateMenu(state) {
@@ -29,4 +29,4 @@ const calendarSlice = createSlice({
 });
 
 export default calendarSlice.reducer;
-export const { changeMonth, changeSmallMonth, changeStateMenu } = calendarSlice.actions;
+export const { changeMonth, changeSmallCalendarMonth, changeStateMenu } = calendarSlice.actions;

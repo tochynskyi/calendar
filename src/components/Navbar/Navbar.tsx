@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import {
   changeMonth,
-  changeSmallMonth,
+  changeSmallCalendarMonth,
   changeStateMenu,
 } from "../../store/reducers/calendarSlice";
 import { getDate } from "../../utils/getDate";
@@ -24,7 +24,7 @@ const Navbar: FC = () => {
   const handlerNext = () => dispatch(changeMonth(currentMonth + 1));
   const handlerToday = () => {
     dispatch(changeMonth(dayjs().month()));
-    dispatch(changeSmallMonth(dayjs().month()));
+    dispatch(changeSmallCalendarMonth(dayjs().month()));
   };
 
   return (

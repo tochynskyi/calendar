@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { useCalendar } from "../../../hooks/useCalendar";
-import { changeSmallMonth } from "../../../store/reducers/calendarSlice";
+import { changeSmallCalendarMonth } from "../../../store/reducers/calendarSlice";
 import { getDate } from "../../../utils/getDate";
 import Arrows from "../../Arrows/Arrows";
 import DaysDisplay from "../../DaysDisplay/DaysDisplay";
@@ -16,7 +16,7 @@ const SmallCalendar: FC = () => {
   const date = getDate(smallCalendarMonth);
 
   useEffect(() => {
-    dispatch(changeSmallMonth(currentMonth));
+    dispatch(changeSmallCalendarMonth(currentMonth));
   }, [currentMonth]);
 
   return (
@@ -28,14 +28,14 @@ const SmallCalendar: FC = () => {
           >{`${date.month} ${date.year}`}</div>
           <Arrows
             handlerPrev={() =>
-              dispatch(changeSmallMonth(smallCalendarMonth - 1))
+              dispatch(changeSmallCalendarMonth(smallCalendarMonth - 1))
             }
             handlerNext={() =>
-              dispatch(changeSmallMonth(smallCalendarMonth + 1))
+              dispatch(changeSmallCalendarMonth(smallCalendarMonth + 1))
             }
           />
         </div>
-        <DaysDisplay display="small" calendar={smallCalendar} date={date}/>
+        <DaysDisplay display="small" calendar={smallCalendar} date={date} />
       </div>
     </>
   );

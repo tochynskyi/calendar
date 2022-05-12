@@ -9,6 +9,7 @@
 		position: relative;
 		overflow: auto;
 		width: 256px;
+		min-width: 256px;
 		padding-right: 8px;
 	}
 	&__buttonCreate {
@@ -20,6 +21,5 @@
 		background-color: #ffffff;
 	}
 	&__body {
-		
 	}
 }

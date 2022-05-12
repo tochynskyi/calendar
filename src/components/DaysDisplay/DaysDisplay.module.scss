@@ -46,7 +46,7 @@
 		color: $lightgray;
 	}
 	&__day {
-		margin: 0 3.3px;
+		margin: 0 3.4px;
 		font-size: 10px;
 	}
 }
@@ -57,9 +57,14 @@
 		flex-direction: column;
 		height: 100%;
 		border-left: 1px solid $border;
+		border-right: 1px solid $border;
 	}
 	&__row {
-		border-bottom: 1px solid $border;	
+		border-bottom: 1px solid $border;
+		&_changing {
+			border-left: 1px solid $border;
+			animation: calendar-row 0.2s linear;
+		}
 	}
 	&__dayWrapper {
 		display: flex;
@@ -78,5 +83,20 @@
 	&__day {
 		margin: 8px 0;
 		font-size: 12px;
+	}
+}
+
+@keyframes calendar-row {
+	0% {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	50% {
+		transform: translateX(20px);
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
 	}
 }

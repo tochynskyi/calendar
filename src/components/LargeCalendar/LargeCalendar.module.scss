@@ -2,8 +2,9 @@
 
 .calendar {
 	&__wrapper {
+		position: relative;
 		flex: 1 1 auto;
 		overflow: hidden;
-		margin:0 8px;
+		margin: 0 8px;
 	}
 }

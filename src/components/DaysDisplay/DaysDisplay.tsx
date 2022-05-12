@@ -1,8 +1,5 @@
 import React, { FC } from "react";
-import { useAppSelector } from "../../hooks/redux";
-import { useCalendar } from "../../hooks/useCalendar";
 import { IDate } from "../../interfaces/IDate";
-import { getDate } from "../../utils/getDate";
 import { isActiveDay } from "../../utils/isActive";
 import style from "./DaysDisplay.module.scss";
 
@@ -10,9 +7,15 @@ interface DaysDisplayProps {
   display: string;
   calendar: IDate[][];
   date: IDate;
+  changing?: boolean;
 }
 
-const DaysDisplay: FC<DaysDisplayProps> = ({ display, calendar, date }) => {
+const DaysDisplay: FC<DaysDisplayProps> = ({
+  display,
+  calendar,
+  date,
+  changing,
+}) => {
   return (
     <>
       {display === "small" && (
@@ -26,9 +29,9 @@ const DaysDisplay: FC<DaysDisplayProps> = ({ display, calendar, date }) => {
           </div>
           {calendar.map((week, i) => (
             <div key={i} className={style.row}>
-              {week.map(({ year, month, day }, id) => (
+              {week.map(({ year, month, day }, i) => (
                 <div
-                  key={id}
+                  key={i}
                   className={`${style.day} ${style.smallCalendar__day}
         			${date.month === month && `${style.day__current}`}
         			${isActiveDay(year, month, day) && `${style.day__active}`}
@@ -44,7 +47,12 @@ const DaysDisplay: FC<DaysDisplayProps> = ({ display, calendar, date }) => {
       {display === "large" && (
         <div className={style.largeCalendar__wrapper}>
           {calendar.map((week, i) => (
-            <div key={i} className={`${style.largeCalendar__row} ${style.row}`}>
+            <div
+              key={i}
+              className={`${style.largeCalendar__row} ${style.row} ${
+                changing && style.largeCalendar__row_changing
+              }`}
+            >
               {week.map(({ year, month, day, dayName }, id) => (
                 <div className={style.largeCalendar__dayWrapper}>
                   {i === 0 && (

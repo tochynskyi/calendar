@@ -1,6 +1,12 @@
 .wrapper {
 	display: flex;
-	width: 100%;
-	height: calc(100vh - 64px);
+	flex-direction: column;
+	min-width: 980px;
 	overflow: hidden;
+	&__content {
+		position: relative;
+		display: flex;
+		height: calc(100vh - 64px);
+		overflow: hidden;
+	}
 }
